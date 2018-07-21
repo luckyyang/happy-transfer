@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Navbar, Nav, NavItem } from 'reactstrap';
+import { Container, Navbar, Nav } from 'reactstrap';
 
-import modules from '../../../../../../modules';
+// import modules from '../../../../../../modules';
 import settings from '../../../../../../../../../settings';
 
 const NavBar = () => (
@@ -12,10 +12,9 @@ const NavBar = () => (
         <NavLink to="/" className="navbar-brand">
           {settings.app.name}
         </NavLink>
-        {modules.navItems}
       </Nav>
 
-      <Nav className="ustify-content-end">
+      {/* <Nav className="ustify-content-end">
         {modules.navItemsRight}
         {(!__PERSIST_GQL__ || __DEV__) && (
           <NavItem>
@@ -24,7 +23,7 @@ const NavBar = () => (
             </a>
           </NavItem>
         )}
-      </Nav>
+      </Nav> */}
     </Container>
   </Navbar>
 );

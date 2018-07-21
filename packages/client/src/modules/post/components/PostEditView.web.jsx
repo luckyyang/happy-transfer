@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import { PageLayout } from '../../common/components/web';
+import PostDetail from './PostDetail';
 import PostForm from './PostForm';
 import PostComments from '../containers/PostComments';
 import settings from '../../../../../../settings';
@@ -25,11 +26,11 @@ const PostEditView = ({ loading, post, match, location, subscribeToMore, addPost
 
   const renderMetaData = () => (
     <Helmet
-      title={`${settings.app.name} - Edit post`}
+      title={`${settings.app.name} - 显示汇款信息`}
       meta={[
         {
-          name: 'description',
-          content: 'Edit post example page'
+          name: '接收人',
+          content: '显示汇款信息'
         }
       ]}
     />
@@ -46,13 +47,17 @@ const PostEditView = ({ loading, post, match, location, subscribeToMore, addPost
     return (
       <PageLayout>
         {renderMetaData()}
-        <Link id="back-button" to="/posts">
+        <Link id="back-button" to="/">
           Back
         </Link>
-        <h2>{post ? 'Edit' : 'Create'} Post</h2>
-        <PostForm onSubmit={onSubmit(postObj, addPost, editPost)} post={post} />
+        <h2>{post ? '显示' : '发送'}汇款</h2>
+        {post ? (
+          <PostDetail onSubmit={onSubmit(postObj, addPost, editPost)} post={post} />
+        ) : (
+          <PostForm onSubmit={onSubmit(postObj, addPost, editPost)} post={post} />
+        )}
         <br />
-        {postObj && (
+        {null && (
           <PostComments
             postId={Number(match.params.id)}
             comments={postObj.comments}

@@ -1,5 +1,5 @@
 export default {
-  name: 'Apollo Starter Kit',
+  name: 'Happy Transfer(汇好快)',
   logging: {
     debugSQL: false,
     apolloLogging: false

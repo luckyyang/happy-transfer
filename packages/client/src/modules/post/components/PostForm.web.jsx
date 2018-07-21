@@ -15,10 +15,10 @@ const validate = values => validateForm(values, postFormSchema);
 const PostForm = ({ values, handleSubmit, submitting }) => {
   return (
     <Form name="post" onSubmit={handleSubmit}>
-      <Field name="title" component={RenderField} type="text" label="Title" value={values.title} />
-      <Field name="content" component={RenderField} type="text" label="Content" value={values.content} />
+      <Field name="title" component={RenderField} type="text" label="接收人" value={values.title} />
+      <Field name="content" component={RenderField} type="text" label="汇款数额" value={values.content} />
       <Button color="primary" type="submit" disabled={submitting}>
-        Save
+        发送
       </Button>
     </Form>
   );

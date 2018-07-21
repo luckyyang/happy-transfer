@@ -52,7 +52,7 @@ export default class PostList extends React.PureComponent {
     } else {
       const columns = [
         {
-          title: 'Title',
+          title: '接收人',
           dataIndex: 'title',
           key: 'title',
           render: (text, record) => (
@@ -60,6 +60,11 @@ export default class PostList extends React.PureComponent {
               {text}
             </Link>
           )
+        },
+        {
+          title: '接收金额',
+          key: 'content',
+          render: (text, record) => <span>{record.content}</span>
         },
         {
           title: 'Actions',
@@ -80,9 +85,9 @@ export default class PostList extends React.PureComponent {
       return (
         <PageLayout>
           {this.renderMetaData()}
-          <h2>Posts</h2>
+          <h2>所有汇款</h2>
           <Link to="/post/0">
-            <Button color="primary">Add</Button>
+            <Button color="primary">开始汇款</Button>
           </Link>
           <h1 />
           <Table dataSource={posts.edges.map(({ node }) => node)} columns={columns} />
